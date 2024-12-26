@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
@@ -16,26 +17,44 @@ const skillsContent = {
       skills: [
         {
           name: "React",
-          icon: "/icons/react.png",
+          icon: "/icons/react.svg",
           color: "#61DAFB",
           proficiency: 90,
         },
         {
           name: "CSS",
-          icon: "/icons/css.png",
+          icon: "/icons/css.svg",
           color: "#2965F1",
           proficiency: 85,
         },
         {
           name: "HTML",
-          icon: "/icons/html.png",
+          icon: "/icons/html.svg",
           color: "#E34F26",
           proficiency: 90,
         },
         {
           name: "Next.js",
-          icon: "/icons/nextjs.png",
+          icon: "/icons/nextjs.svg",
           color: "#000000",
+          proficiency: 85,
+        },
+        {
+          name: "Tailwind",
+          icon: "/icons/tailwind.svg",
+          color: "#19BBB9",
+          proficiency: 85,
+        },
+        {
+          name: "BootStrap",
+          icon: "/icons/bootstrap.svg",
+          color: "#563D7C",
+          proficiency: 85,
+        },
+        {
+          name: "Redux & RTK",
+          icon: "/icons/redux.svg",
+          color: "#764ABC",
           proficiency: 85,
         },
       ],
@@ -45,21 +64,15 @@ const skillsContent = {
       skills: [
         {
           name: "Node.js",
-          icon: "/icons/nodejs.png",
+          icon: "/icons/node.svg",
           color: "#8CC84B",
           proficiency: 80,
         },
         {
           name: "Express",
-          icon: "/icons/express.png",
+          icon: "/icons/express.svg",
           color: "#000000",
           proficiency: 75,
-        },
-        {
-          name: "Python",
-          icon: "/icons/python.png",
-          color: "#306998",
-          proficiency: 70,
         },
       ],
     },
@@ -68,13 +81,13 @@ const skillsContent = {
       skills: [
         {
           name: "MongoDB",
-          icon: "/icons/mongodb.png",
+          icon: "/icons/mongodb.svg",
           color: "#47A248",
           proficiency: 80,
         },
         {
-          name: "PostgreSQL",
-          icon: "/icons/postgresql.png",
+          name: "MySQL",
+          icon: "/icons/mysql.svg",
           color: "#336791",
           proficiency: 75,
         },
@@ -85,14 +98,20 @@ const skillsContent = {
       skills: [
         {
           name: "JavaScript",
-          icon: "/icons/js.png",
+          icon: "/icons/js.svg",
           color: "#F7DF1E",
           proficiency: 90,
         },
         {
           name: "TypeScript",
-          icon: "/icons/ts.png",
+          icon: "/icons/typescript.svg",
           color: "#3178C6",
+          proficiency: 85,
+        },
+        {
+          name: "C#",
+          icon: "/icons/csharp.svg",
+          color: "#68217A",
           proficiency: 85,
         },
       ],
@@ -101,21 +120,33 @@ const skillsContent = {
       name: "Others",
       skills: [
         {
-          name: "Git",
-          icon: "/icons/git.png",
+          name: "Git & Github",
+          icon: "/icons/git.svg",
           color: "#F1502F",
           proficiency: 80,
         },
         {
-          name: "Docker",
-          icon: "/icons/docker.png",
-          color: "#2496ED",
+          name: "Jira",
+          icon: "/icons/jira.svg",
+          color: "#2584FF",
           proficiency: 70,
         },
         {
-          name: "GraphQL",
-          icon: "/icons/graphql.png",
-          color: "#E10098",
+          name: "Notion",
+          icon: "/icons/notion.svg",
+          color: "#000000",
+          proficiency: 65,
+        },
+        {
+          name: "Adobe XD",
+          icon: "/icons/xd.svg",
+          color: "#470238",
+          proficiency: 65,
+        },
+        {
+          name: "Figma",
+          icon: "/icons/figma.svg",
+          color: "#FF7262",
           proficiency: 65,
         },
       ],
@@ -126,66 +157,74 @@ const skillsContent = {
 const Skills: React.FC = () => {
   const [activeTab, setActiveTab] = useState(0);
 
-  // Circular Progress Bar Component
-  const CircleProgressBar = ({
-    percentage,
-    color,
-  }: {
-    percentage: number;
-    color: string;
-  }) => {
-    const radius = 40;
+  const CircleProgressBar = ({ percentage, color, icon, name }: any) => {
+    const radius = 50;
     const stroke = 8;
     const circumference = 2 * Math.PI * radius;
     const offset = circumference - (percentage / 100) * circumference;
 
     return (
-      <svg
-        width="100"
-        height="100"
-        className="w-24 h-24 mb-4"
-        viewBox="0 0 100 100"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <circle
-          cx="50"
-          cy="50"
-          r={radius}
-          stroke="gray"
-          strokeWidth={stroke}
-          fill="none"
-        />
-        <motion.circle
-          cx="50"
-          cy="50"
-          r={radius}
-          stroke={color}
-          strokeWidth={stroke}
-          fill="none"
-          strokeDasharray={circumference}
-          strokeDashoffset={offset}
-          initial={{ strokeDashoffset: circumference }}
-          animate={{ strokeDashoffset: offset }}
-          transition={{
-            duration: 1.5,
-            ease: "easeOut",
-          }}
-        />
-      </svg>
+      <div className="relative w-32 h-32 md:w-36 md:h-36 lg:w-44 lg:h-44">
+        {/* Circular Progress Bar */}
+        <svg
+          width="100%"
+          height="100%"
+          viewBox="0 0 120 120"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="60"
+            cy="60"
+            r={radius}
+            stroke="#e6e6e6"
+            strokeWidth={stroke}
+            fill="none"
+          />
+          <motion.circle
+            cx="60"
+            cy="60"
+            r={radius}
+            stroke={color}
+            strokeWidth={stroke}
+            fill="none"
+            strokeDasharray={circumference}
+            strokeDashoffset={offset}
+            initial={{ strokeDashoffset: circumference }}
+            animate={{ strokeDashoffset: offset }}
+            transition={{
+              duration: 1.5,
+              ease: "easeOut",
+            }}
+          />
+        </svg>
+
+        {/* Content inside the circle */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center">
+          <img
+            src={icon}
+            alt={name}
+            className="w-10 h-10 mb-1 md:w-12 md:h-12"
+          />
+          <p className="text-xs md:text-sm font-semibold text-black mb-1">
+            {name}
+          </p>
+          <p className="text-xs text-gray-600">{percentage}%</p>
+        </div>
+      </div>
     );
   };
 
   return (
     <section
       id="skills"
-      className="py-16 bg-gradient-to-r from-gray-50 via-gray-100 to-white text-center"
+      className="py-16 bg-gradient-to-r from-gray-50 via-gray-100 to-white font-poppins md:text-center"
     >
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
         <motion.h2
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, ease: "easeInOut" }}
-          className="text-4xl font-extrabold text-black mb-6"
+          className="text-3xl md:text-4xl font-extrabold text-gray-800 mb-6"
         >
           {skillsContent.title}
         </motion.h2>
@@ -194,7 +233,7 @@ const Skills: React.FC = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="text-lg text-gray-700 mb-12"
+          className="text-sm md:text-lg text-gray-600 mb-12"
         >
           {skillsContent.description}
         </motion.p>
@@ -225,34 +264,22 @@ const Skills: React.FC = () => {
           </Tabs>
         </Box>
 
-        {/* Skills Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+        {/* <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6"> */}
+        <div className="flex flex-wrap justify-center items-center gap-6">
           {skillsContent.tabs[activeTab].skills.map((skill, index) => (
             <motion.div
               key={index}
-              className="group flex flex-col items-center justify-center bg-white p-6 rounded-lg shadow-xl transition-transform transform hover:scale-105 hover:shadow-2xl"
+              className="group flex items-center justify-center rounded-lg"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.3 + index * 0.2 }}
             >
-              <img
-                src={skill.icon}
-                alt={skill.name}
-                className="w-16 h-16 mb-4 group-hover:opacity-90 transition-all"
-              />
-              <h3 className="text-xl font-semibold text-black mb-4 group-hover:text-indigo-600 transition-all">
-                {skill.name}
-              </h3>
-
-              {/* Circular Progress Bar with dynamic color */}
               <CircleProgressBar
                 percentage={skill.proficiency}
                 color={skill.color}
+                icon={skill.icon}
+                name={skill.name}
               />
-
-              <p className="text-sm text-gray-600">
-                {skill.proficiency}% Proficiency
-              </p>
             </motion.div>
           ))}
         </div>

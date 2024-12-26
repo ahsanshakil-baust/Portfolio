@@ -28,10 +28,10 @@ const About = () => {
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
         <div className="text-start md:text-center mb-12">
-          <h2 className="text-4xl font-extrabold text-gray-800 leading-tight">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-800 leading-tight">
             My Journey & What Drives Me
           </h2>
-          <p className="mt-4 text-lg text-gray-600">
+          <p className="mt-4 text-sm md:text-lg text-gray-600">
             Discover the passion and purpose that fuel my creative journey.
           </p>
         </div>
