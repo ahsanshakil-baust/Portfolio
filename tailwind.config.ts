@@ -12,6 +12,17 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        poppins: ["Poppins", "sans-serif"],
+        cursive: ["Edu AU VIC WA NT Arrows", "cursive"],
+        montserrat: ["Montserrat", "sans-serif"],
+        parkinsans: ["Parkinsans", "sans-serif"],
+      },
+      screens: {
+        xs: "485px",
+        xxs: "420px",
+        xxxs: "380px",
+      },
     },
   },
   plugins: [],
