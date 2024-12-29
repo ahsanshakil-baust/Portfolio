@@ -154,7 +154,7 @@ const skillsContent = {
   ],
 };
 
-const Skills: React.FC = () => {
+const HomeSkills: React.FC = () => {
   const [activeTab, setActiveTab] = useState(0);
 
   const CircleProgressBar = ({ percentage, color, icon, name }: any) => {
@@ -243,7 +243,7 @@ const Skills: React.FC = () => {
           <Tabs
             value={activeTab}
             onChange={(e, newValue) => setActiveTab(newValue)}
-            aria-label="Skills Tabs"
+            aria-label="Home Tabs"
             centered
             variant="scrollable"
             allowScrollButtonsMobile
@@ -288,4 +288,4 @@ const Skills: React.FC = () => {
   );
 };
 
-export default Skills;
+export default HomeSkills;

@@ -1,74 +1,99 @@
-/* eslint-disable @next/next/no-img-element */
-"use client";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
-const Hero = () => {
+export default function Hero() {
   return (
-    <section className="absolute text-white flex flex-col justify-center items-center overflow-hidden w-full h-full top-0 left-0">
-      {/* Animated Profile Image */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.7 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1, ease: "easeInOut" }}
-        className="relative rounded-full overflow-hidden shadow-xl w-80 h-80 border-4 border-white z-10"
-      >
-        <img
-          src="/profile.jpg"
-          alt="Shakil's Photo"
-          className="rounded-full object-cover"
-        />
-      </motion.div>
-
-      {/* Creative Text */}
-      <motion.div
-        initial={{ y: 40, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
-        className="text-center mt-8 z-10"
-      >
-        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight font-montserrat">
-          {`Hi, I'm`} <span className="text-white">Ahsan Shakil</span>
-        </h1>
-        <p className="mt-4 text-base md:text-xl font-light text-gray-300 max-w-lg mx-auto font-poppins">
-          I build innovative, high-performance web solutions with{" "}
-          <span className="text-white">passion</span> and a relentless drive for
-          excellence.
-        </p>
-      </motion.div>
-
-      {/* Call-to-Action Buttons */}
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 1, ease: "easeOut" }}
-        className="flex gap-6 mt-10 z-10"
-      >
-        <a
-          href="#projects"
-          className="px-8 py-3 text-lg font-semibold border border-white rounded-full hover:bg-white hover:text-black transition-all duration-300"
+    <div className="text-white min-h-screen absolute max-w-[1200px] top-0 left-0 w-full h-full flex justify-center items-center flex-col absolute-center px-5">
+      {/* Hero Section */}
+      <div className="w-full flex font-parkinsans gap-2 lg:gap-8 justify-center lg:justify-between items-center lg:flex-row flex-col-reverse">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center lg:text-left mt-10 lg:mt-0"
         >
-          View My Work
-        </a>
-        <a
-          href="#contact"
-          className="px-8 py-3 text-lg font-semibold bg-white text-black rounded-full hover:bg-gray-800 hover:text-white border border-white transition-all duration-300"
-        >
-          Contact Me
-        </a>
-      </motion.div>
+          <span className="text-base">Software Developer</span>
+          <h2 className="text-3xl sm:text-4xl md:text-7xl/[90px] font-normal mb-5">
+            Hello I&apos;m <br />{" "}
+            <span className="font-montserrat font-bold">Ahsan Shakil</span>
+          </h2>
+          <p className="text-gray-400 mt-2 sm:mt-4 max-w-lg">
+            I excel at crafting elegant digital experiences and am proficient in
+            various programming languages and technologies.
+          </p>
+          <div className="flex flex-wrap items-center space-x-4 mt-6 justify-center lg:justify-start">
+            <button className="bg-green-500 px-4 py-2 rounded hover:bg-green-600">
+              Download CV
+            </button>
+            <div className="flex space-x-3 text-gray-400 mt-3 sm:mt-0">
+              <a href="#" className="hover:text-white">
+                GitHub
+              </a>
+              <a href="#" className="hover:text-white">
+                LinkedIn
+              </a>
+              <a href="#" className="hover:text-white">
+                YouTube
+              </a>
+            </div>
+          </div>
+        </motion.div>
 
-      {/* Subtle Scroll Indicator */}
+        <div className="relative mt-[300px] sm:mt-10 lg:mt-10 w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] lg:w-[400px] lg:h-[400px] p-2">
+          <div className="absolute inset-0 w-[160%] h-[160%] rounded-full animate-rotate">
+            <Image
+              src="/circle/circle2.png"
+              alt="circle"
+              layout="fill"
+              className="rounded-full w-full h-full z-10"
+            />
+          </div>
+          <Image
+            src="/profile.jpg"
+            alt="Profile Picture"
+            layout="fill"
+            className="rounded-full"
+          />
+        </div>
+      </div>
+
+      {/* Stats Section */}
+      <section className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 text-center lg:self-start font-montserrat">
+        <div className="flex justify-center items-center gap-2">
+          <h3 className="text-4xl lg:text-5xl font-bold text-[#fff]">10</h3>
+          <p className="text-gray-400 text-sm text-left">
+            Years of <br /> experience
+          </p>
+        </div>
+        <div className="flex justify-center items-center gap-2">
+          <h3 className="text-4xl lg:text-5xl font-bold text-[#fff]">22</h3>
+          <p className="text-gray-400 text-sm text-left">
+            Projects <br /> completed
+          </p>
+        </div>
+        <div className="flex justify-center items-center gap-2">
+          <h3 className="text-4xl lg:text-5xl font-bold text-[#fff]">7</h3>
+          <p className="text-gray-400 text-sm text-left">
+            Technologies <br /> mastered
+          </p>
+        </div>
+        <div className="flex justify-center items-center gap-2">
+          <h3 className="text-4xl lg:text-5xl font-bold text-[#fff]">427</h3>
+          <p className="text-gray-400 text-sm text-left">
+            Code <br /> commits
+          </p>
+        </div>
+      </section>
+
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.5 }}
-        className="absolute bottom-10 text-gray-400 text-sm flex flex-col items-center z-10"
+        className="text-gray-400 text-sm flex flex-col items-center z-10 mt-10 lg:mt-0 lg:absolute lg:bottom-10"
       >
         <span>Scroll Down</span>
         <div className="mt-2 w-6 h-6 border-2 border-gray-400 rounded-full animate-bounce"></div>
       </motion.div>
-    </section>
+    </div>
   );
-};
-
-export default Hero;
+}

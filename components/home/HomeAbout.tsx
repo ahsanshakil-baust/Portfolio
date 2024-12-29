@@ -20,7 +20,7 @@ const aboutContent = {
   },
 };
 
-const About = () => {
+const HomeAbout = () => {
   return (
     <section
       className="py-20 bg-gradient-to-r from-gray-50 via-gray-100 to-white font-poppins"
@@ -66,4 +66,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default HomeAbout;

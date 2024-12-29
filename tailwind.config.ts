@@ -18,6 +18,9 @@ export default {
         montserrat: ["Montserrat", "sans-serif"],
         parkinsans: ["Parkinsans", "sans-serif"],
       },
+      width: {
+        common: "1200px",
+      },
       screens: {
         xs: "485px",
         xxs: "420px",

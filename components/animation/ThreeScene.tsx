@@ -86,7 +86,7 @@ const ParticleScene = () => {
           map: texture,
           alphaTest: 0.5,
           transparent: true,
-          opacity: 0.5,
+          opacity: 0.6,
         });
 
         const particles = new THREE.Points(geometry, material);
